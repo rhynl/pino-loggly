@@ -1,6 +1,6 @@
 {
 	"name": "pino-loggly",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "send pino logs to loggly",
 	"license": "MIT",
 	"repository": "github:rhynl/pino-loggly",
@@ -22,9 +22,10 @@
 		"test": "xo && nyc ava"
 	},
 	"files": [
-		"index.js",
+    "lib/",
+    "src/",
 		"cli.js"
-	],
+  ],
 	"keywords": [
 		"pino",
 		"loggly",
