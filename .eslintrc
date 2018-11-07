@@ -1,0 +1,25 @@
+{
+  "env": {
+    "mocha": true,
+    "node": true
+  },
+  "plugins": ["node"],
+  "extends": ["eslint:recommended", "plugin:node/recommended", "airbnb-base"],
+  "rules": {
+    "node/exports-style": ["error", "module.exports"],
+    "node/no-missing-require": "off",
+    "node/no-unpublished-require": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/no-unresolved": "off",
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "radix": "off",
+    "object-curly-newline": "off",
+    "indent": "off",
+    "no-tabs": "off",
+    "no-underscore-dangle": "off",
+    "array-callback-return": "off",
+    "max-len": "warn",
+    "no-extra-boolean-cast": "warn",
+    "global-require": "warn"
+  }
+}
