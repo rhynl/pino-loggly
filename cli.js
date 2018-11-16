@@ -10,6 +10,7 @@ const cli = meow(`
     --token  Loggly token
     --tags  list of tags [Default: []]
     --json  data is json type [Default: false]
+    --returnStream send to stdout and/or stderr
 
 	Example
 	  $ pino-loggly --token 2c52ac24-2c52ac24-2c52ac24-2c52ac24 --tags pino-loggly,cli-msg --json false

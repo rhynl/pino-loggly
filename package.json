@@ -13,19 +13,18 @@
 		"email": "mail@rhynl.io",
 		"url": "https://rhynl.io"
 	},
-	"main": "lib/index.js",
+	"main": "lib/pino-loggly.js",
 	"bin": "cli.js",
 	"engines": {
-		"node": ">=8"
+		"node": ">=8.3"
 	},
 	"scripts": {
-		"test": "xo && nyc ava"
+		"test": "nyc ava"
 	},
 	"files": [
-    "lib/",
-    "src/",
+		"lib/",
 		"cli.js"
-  ],
+	],
 	"keywords": [
 		"pino",
 		"loggly",
@@ -36,7 +35,6 @@
 		"fast-json-parse": "^1.0.3",
 		"got": "^9.3.1",
 		"meow": "^5.0.0",
-		"pino": "^5.8.1",
 		"pump": "^3.0.0",
 		"split2": "^3.0.0",
 		"through2": "^2.0.4"
@@ -48,6 +46,6 @@
 		"eslint-plugin-import": "^2.14.0",
 		"eslint-plugin-node": "^8.0.0",
 		"nyc": "^12.0.0",
-		"xo": "^0.21.0"
+		"pino": "^5.8.1"
 	}
 }

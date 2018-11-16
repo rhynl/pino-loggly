@@ -21,6 +21,7 @@ const pinoLoggly = require('pino-loggly')({
   token: 'token-goes-here',
   tags: ['tag1', 'tag2'],
   json: false,
+  returnStream: true,
 });
 
 const logger = pino(pinoLoggly);
@@ -40,6 +41,7 @@ Usage
     --token                         Loggly token
     --tags                          list of tags [Default: []]
     --json                          data is json type [Default: false]
+    --returnStream send to stdout and/or stderr
 ```
 
 ## License

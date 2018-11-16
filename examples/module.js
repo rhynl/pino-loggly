@@ -1,10 +1,14 @@
 const pino = require('pino');
-const pinoLoggly = require('../lib')({
-  token: 'token-goes-here',
+
+const config = {
+  token: '<token-goes-here>',
   tags: ['pino-loggly'],
-  json: false,
-});
+  level: 'info',
+  returnStream: true,
+};
+
+const pinoLoggly = require('../lib/pino-loggly')(config);
 
 const logger = pino(pinoLoggly);
 
-logger.error('Hello World');
+logger.warn('Hello World');
