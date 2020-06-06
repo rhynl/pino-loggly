@@ -1,51 +1,69 @@
 {
-	"name": "pino-loggly",
-	"version": "1.1.1",
-	"description": "send pino logs to loggly",
-	"license": "MIT",
-	"repository": "github:rhynl/pino-loggly",
-	"bugs": {
-		"url": "https://github.com/rhynl/pino-loggly/issues"
-	},
-	"homepage": "https://github.com/rhynl/pino-loggly#readme",
-	"author": {
-		"name": "Rhaynel Parra Aguiar",
-		"email": "mail@rhynl.io",
-		"url": "https://rhynl.io"
-	},
-	"main": "lib/pino-loggly.js",
-	"bin": "cli.js",
-	"engines": {
-		"node": ">=8.3"
-	},
-	"scripts": {
-		"test": "nyc ava"
-	},
-	"files": [
-		"lib/",
-		"cli.js"
-	],
-	"keywords": [
-		"pino",
-		"loggly",
-		"logs",
-		"logger"
-	],
-	"dependencies": {
-		"fast-json-parse": "^1.0.3",
-		"got": "^9.3.1",
-		"meow": "^5.0.0",
-		"pump": "^3.0.0",
-		"split2": "^3.0.0",
-		"through2": "^2.0.4"
-	},
-	"devDependencies": {
-		"ava": "^0.25.0",
-		"eslint": "^5.8.0",
-		"eslint-config-airbnb-base": "^13.1.0",
-		"eslint-plugin-import": "^2.14.0",
-		"eslint-plugin-node": "^8.0.0",
-		"nyc": "^12.0.0",
-		"pino": "^5.8.1"
-	}
+  "name": "pino-loggly",
+  "version": "1.1.1",
+  "description": "send pino logs to loggly",
+  "license": "MIT",
+  "repository": "github:rhynl/pino-loggly",
+  "bugs": {
+    "url": "https://github.com/rhynl/pino-loggly/issues"
+  },
+  "homepage": "https://github.com/rhynl/pino-loggly#readme",
+  "author": {
+    "name": "Rhaynel Parra Aguiar",
+    "email": "mail@rhynl.io",
+    "url": "https://rhynl.io"
+  },
+  "main": "dist/lib/pino-loggly.js",
+  "types": "dist/lib/pino-loggly.d.ts",
+  "bin": "dist/cli.js",
+  "engines": {
+    "node": ">=10",
+    "npm": ">=6.14.0",
+    "vscode": ">=1.45.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "coverage": "nyc npm run test --silent",
+    "prepare": "npm run build",
+    "lint": "eslint src/**/* --color --fix && tslint --fix --project .",
+    "pretest": "npm run lint --silent",
+    "test": "mocha",
+    "tdd": "mocha --extensions ts --watch --watch-files src || exit 0"
+  },
+  "keywords": [
+    "pino",
+    "loggly",
+    "logs",
+    "logger"
+  ],
+  "dependencies": {
+    "fast-json-parse": "^1.0.3",
+    "got": "^11.3.0",
+    "meow": "^7.0.1",
+    "pump": "^3.0.0",
+    "split2": "^3.1.1",
+    "through2": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/minimist": "^1.2.0",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^14.0.11",
+    "@types/pino": "^6.0.1",
+    "@types/pump": "^1.1.0",
+    "@types/sinon": "^9.0.4",
+    "@types/split2": "^2.1.6",
+    "@types/through2": "^2.0.36",
+    "@typescript-eslint/eslint-plugin": "^3.1.0",
+    "@typescript-eslint/parser": "^3.1.0",
+    "chai": "^4.2.0",
+    "eslint": "^7.2.0",
+    "mocha": "^7.2.0",
+    "nyc": "^15.1.0",
+    "pino": "^6.3.2",
+    "sinon": "^9.0.2",
+    "ts-node": "^8.10.2",
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.5"
+  }
 }

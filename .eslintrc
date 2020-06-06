@@ -1,25 +1,27 @@
 {
+  "extends": [
+    "plugin:@typescript-eslint/recommended"
+  ],
   "env": {
-    "mocha": true,
-    "node": true
+    "node": true,
+    "mocha": true
   },
-  "plugins": ["node"],
-  "extends": ["eslint:recommended", "plugin:node/recommended", "airbnb-base"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "strict": true
+    }
+  },
+  "plugins": [
+    "@typescript-eslint/eslint-plugin"
+  ],
   "rules": {
-    "node/exports-style": ["error", "module.exports"],
-    "node/no-missing-require": "off",
-    "node/no-unpublished-require": "off",
-    "import/no-extraneous-dependencies": "off",
-    "import/no-unresolved": "off",
-    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
-    "radix": "off",
-    "object-curly-newline": "off",
-    "indent": "off",
-    "no-tabs": "off",
-    "no-underscore-dangle": "off",
-    "array-callback-return": "off",
-    "max-len": "warn",
-    "no-extra-boolean-cast": "warn",
-    "global-require": "warn"
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explict-fucntion-return-type": "off"
   }
 }

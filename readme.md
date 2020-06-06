@@ -5,7 +5,7 @@
 ## Install
 
 ```sh
-$ npm install pino-loggly
+npm install pino-loggly
 ```
 
 ## Usage
@@ -16,15 +16,17 @@ Send pino logs to loggly
 node my-app.js | pino-loggly [options]
 ```
 
-```js
-const pinoLoggly = require('pino-loggly')({
+```ts
+import PinoLoggly from "pino-loggly";
+
+const loggly = new PinoLoggly({
   token: 'token-goes-here',
   tags: ['tag1', 'tag2'],
   json: false,
   returnStream: true,
 });
 
-const logger = pino(pinoLoggly);
+const logger = pino(loggly.init());
 
 logger.error('Hello World');
 ```
@@ -33,15 +35,17 @@ logger.error('Hello World');
 
 ```sh
 Usage
-    $ pino-loggly
+  $ pino-loggly [options]
 
-  Options
-    -h, --help                      output usage information
-    -V, --version                   output the version number
-    --token                         Loggly token
-    --tags                          list of tags [Default: []]
-    --json                          data is json type [Default: false]
-    --returnStream send to stdout and/or stderr
+Options
+  --token         Loggly token [Required]
+  --tag           list of tags [Default: ""]
+  --json          data is json type
+  --returnStream  send to stdout and/or stderr
+  --logLevel      log level [Default: info]
+
+Example
+  $ pino-loggly --token 2c52ac24-2c52ac24-2c52ac24-2c52ac24 --tag pino-loggly --tag cli-msg --json false
 ```
 
 ## License
