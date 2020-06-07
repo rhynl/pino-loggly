@@ -1,6 +1,6 @@
 {
   "name": "pino-loggly",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "send pino logs to loggly",
   "license": "MIT",
   "repository": "github:rhynl/pino-loggly",
