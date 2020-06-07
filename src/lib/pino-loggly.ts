@@ -37,7 +37,6 @@ export class PinoLoggly {
     const logger = new Logger(this.token, this.tags);
 
     const splitter = split(function spltr(this: any, line) {
-      console.log(JSON.stringify(line, undefined, 10));
       const { err, value } = new Parser(line);
       if (err) {
         this.emit("unknown", line, err);
