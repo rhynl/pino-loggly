@@ -7,7 +7,6 @@ import { hostname } from "os";
  */
 export class Logger {
   private readonly URL = "https://logs-01.loggly.com/inputs";
-  /** log level severity according to Pino */
   public readonly levels: { [name: string]: number; } = {
     trace: 10,
     debug: 20,

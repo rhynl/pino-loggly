@@ -4,14 +4,21 @@ import pump from "pump";
 import Parser from "fast-json-parse";
 import through from "through2";
 
-import { Logger } from "./utils";
+import { Logger } from "./logger";
 
-type Options = {
-  tags: string[];
+/** SeverityLevel - log level severity according to Pino */
+export type SeverityLevel = "trace" | "debug" | "info" | "warn" | "error" | "fatal";
+
+export interface PinoLogglyOptions {
+  /** list of tags to be passed to Loggly services */
+  tags?: string[];
+  /** API token to authorize against Loggly services */
   token: string;
-  level: string;
-  returnStream: boolean;
-};
+  /** severy level from when logs should start to be sending to Loggly services */
+  level?: SeverityLevel;
+  /** should send logs to standard output/error after send logs to Loggly services */
+  returnStream?: boolean;
+}
 
 export class PinoLoggly {
   private readonly token: string;
@@ -19,7 +26,7 @@ export class PinoLoggly {
   private readonly returnStream: boolean;
   private readonly tags: string[];
 
-  constructor(options: Options) {
+  constructor(options: PinoLogglyOptions) {
     this.token = options.token;
     this.level = options.level ?? "info";
     this.returnStream = options.returnStream ?? false;
@@ -30,6 +37,7 @@ export class PinoLoggly {
     const logger = new Logger(this.token, this.tags);
 
     const splitter = split(function spltr(this: any, line) {
+      console.log(JSON.stringify(line, undefined, 10));
       const { err, value } = new Parser(line);
       if (err) {
         this.emit("unknown", line, err);

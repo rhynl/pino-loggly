@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import meow from "meow";
-import { PinoLoggly } from "./lib/loggly";
+import { PinoLoggly, SeverityLevel } from "./lib/pino-loggly";
 
 const cli = meow(`
 Usage
@@ -51,7 +51,7 @@ const { tag, token, logLevel, returnStream } = cli.flags;
 const loggly = new PinoLoggly({
   token,
   tags: tag as unknown as string[],
-  level: logLevel,
+  level: logLevel as SeverityLevel,
   returnStream,
 });
 

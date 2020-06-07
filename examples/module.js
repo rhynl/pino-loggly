@@ -1,9 +1,9 @@
-import pino from "pino";
-import { PinoLoggly } from "../lib/loggly";
+const pino = require("pino");
+const { } = require("../dist/lib/pino-loggly");
 
 const config = {
-  token: "<PUT-TOKEN-HERE>",
-  tags: ["final-test", "2020"],
+  token: "<put-token-here>",
+  tags: ["module", "pino-loggly"],
   level: "debug",
   returnStream: true,
 };

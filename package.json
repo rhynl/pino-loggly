@@ -27,8 +27,8 @@
     "prepare": "npm run build",
     "lint": "eslint src/**/* --color --fix && tslint --fix --project .",
     "pretest": "npm run lint --silent",
-    "test": "mocha",
-    "tdd": "mocha --extensions ts --watch --watch-files src || exit 0"
+    "test": "TS_NODE_PROJECT=tsconfig.test.json mocha",
+    "tdd": "TS_NODE_PROJECT=tsconfig.test.json mocha --extensions ts --watch --watch-files src || exit 0"
   },
   "keywords": [
     "pino",

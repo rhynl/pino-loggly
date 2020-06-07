@@ -3,7 +3,7 @@ import { SinonStub, stub } from "sinon";
 import { ImportMock } from "ts-mock-imports";
 import got from "got";
 
-import { Logger } from "./utils";
+import { Logger } from "./logger";
 
 describe("utils", () => {
   context("Logger: checking config", () => {
