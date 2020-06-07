@@ -1,14 +1,17 @@
-const pino = require('pino');
+const pino = require("pino");
+const { } = require("../dist/lib/pino-loggly");
 
 const config = {
-  token: '<token-goes-here>',
-  tags: ['pino-loggly'],
-  level: 'info',
+  token: "<put-token-here>",
+  tags: ["module", "pino-loggly"],
+  level: "debug",
   returnStream: true,
 };
 
-const pinoLoggly = require('../lib/pino-loggly')(config);
+const loggly = new PinoLoggly(config);
 
-const logger = pino(pinoLoggly);
+const logger = pino(loggly.init());
 
-logger.warn('Hello World');
+setInterval(() => {
+  logger.info("Hello World from pino-loggly");
+}, 2000);

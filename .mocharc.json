@@ -1,0 +1,9 @@
+{
+  "require": "ts-node/register",
+  "colors": true,
+  "recursive": true,
+  "full-trace": true,
+  "fail": true,
+  "exit": true,
+  "spec": "./**/*_test.ts"
+}
