@@ -1,11 +1,13 @@
 import got, { OptionsOfTextResponseBody } from "got";
+import { hostname } from "os";
 
 /**
- * Logger - This class allows to prepare a client
+ * Logger - allows to prepare a client
  * that can send logs directly to Loggly
  */
 export class Logger {
   private readonly URL = "https://logs-01.loggly.com/inputs";
+  /** log level severity according to Pino */
   public readonly levels: { [name: string]: number; } = {
     trace: 10,
     debug: 20,
@@ -39,6 +41,14 @@ export class Logger {
       body: JSON.stringify(body),
     };
 
-    got(sendTo, gotOptions);
+    got.post(sendTo, gotOptions).catch((err) => {
+      process.stderr.write(JSON.stringify({
+        level: this.levels["fatal"],
+        time: Date.now(),
+        pid: process.getgid,
+        hostname: hostname(),
+        msg: `Error trying to connect to Loggly services. ${err.message}`,
+      }) + "\n");
+    });
   }
 }
